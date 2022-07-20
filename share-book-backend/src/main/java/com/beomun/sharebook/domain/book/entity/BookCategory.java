@@ -2,16 +2,15 @@ package com.beomun.sharebook.domain.book.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
-public class Book {
+public class BookCategory {
 
     @Id
-    private Long bookId;
-    private String bookTitle;
+    private int bookCategoryId;
+    private String bookCategoryName;
+    private String bookCategoryOrder;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-
 }
