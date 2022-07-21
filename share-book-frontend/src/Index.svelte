@@ -1,11 +1,25 @@
 <script lang="ts">
-    import {get, post} from '/src/assets/js/api.js'
+    import { Router, Link, Route } from "svelte-routing"
+    import Home from "./routes/Home.svelte"
+    import About from "./routes/About.svelte"
+    import Blog from "./routes/Blog.svelte"
+    import ApiTest from "./routes/sample/ApiTest.svelte"
 
-    get()
+    export let url = "";
 </script>
-<main>
-    <h1>메인페이지</h1>
-
-</main>
+<Router url="{url}">
+    <nav>
+        <Link to="/">Home</Link>
+        <Link to="about">About</Link>
+        <Link to="blog">Blog</Link>
+        <Link to="apiTest">ApiTest</Link>
+    </nav>
+    <div>
+        <Route path="blog" component="{Blog}" />
+        <Route path="about" component="{About}" />
+        <Route path="/"><Home /></Route>
+        <Route path="/apiTest"><ApiTest /></Route>
+    </div>
+</Router>
 
 
