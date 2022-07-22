@@ -1,16 +1,14 @@
 import axios from 'axios'
 
-const get = (params) => {
+const get = (url) => {
+    axios.get(`${url}`).then(response => response.data)
+        .then( (response) => {
+            console.log('response',response)
+        })
+        .catch( (err) => {
+            console.log(err)
+        })
 
-    axios.get(params.url, {
-        params: params.params
-    })
-    .then((res) => {
-        return res;
-    })
-    .catch((err) => {
-        console.error(err)
-    })
 }
 
 const post = (params) => {
@@ -22,6 +20,17 @@ const post = (params) => {
     .catch( (err) => {
         console.error(err)
     })
+}
+
+const del = (params) => {
+
+    axios.delete(params.url)
+        .then( (response) => {
+            console.log(response)
+        })
+        .catch( (err) => {
+            console.error(err)
+        })
 }
 
 export {get, post};

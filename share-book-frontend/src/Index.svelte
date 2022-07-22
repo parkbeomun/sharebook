@@ -13,6 +13,7 @@
         <Link to="about">About</Link>
         <Link to="blog">Blog</Link>
         <Link to="apiTest">ApiTest</Link>
+        <Link to="bookCrudTest">BookCrudTest</Link>
     </nav>
     <div>
         <Route path="blog" component="{Blog}" />

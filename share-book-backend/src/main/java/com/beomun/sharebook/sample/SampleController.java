@@ -1,12 +1,14 @@
 package com.beomun.sharebook.sample;
 
 import com.beomun.sharebook.domain.book.entity.Book;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@CrossOrigin(maxAge = 3600)
 @RestController
 public class SampleController {
 
