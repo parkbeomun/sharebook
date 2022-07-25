@@ -1,9 +1,11 @@
 import axios from 'axios'
 
-const get = (url) => {
+
+const get = (url, callback) => {
     axios.get(`${url}`).then(response => response.data)
         .then( (response) => {
             console.log('response',response)
+            callback.call(response);
         })
         .catch( (err) => {
             console.log(err)

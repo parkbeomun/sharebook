@@ -1,8 +1,10 @@
 <script lang="ts">
-    import {get, post} from '/src/assets/js/api.js'
+    import {get} from '/src/assets/js/api.js'
 
     function handleClick () {
-      get('http://localhost:9080/sample')
+      get('http://localhost:9080/sample', function () {
+
+      })
     }
 </script>
 <main>
