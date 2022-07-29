@@ -1,20 +1,13 @@
 <script lang="ts">
     import {get, post} from '/src/assets/js/api.js'
 
-    select();
-
-
-
-    let people = [
-        {first : 'Park', last: 'Beomun'},
-        {first : 'Kim', last: 'Dohee'},
-        {first : 'Kim', last: 'seongmin'},
-    ];
-
+    let people = [];
     let prefix = '';
     let first = '';
     let last = '';
     let i = 0;
+
+    getPeopleList();
 
     $: filteredPeople = prefix
         ? people.filter(person => {
@@ -27,10 +20,17 @@
 
     $: reset_inputs(selected);
 
-    function select() {
-      get('http://localhost:9080/people', function (res) {
-        console.log(res)
-      })
+    function getPeopleList() {
+        get('http://localhost:9080/people', function (res) {
+            console.log("res",res)
+            people = res;
+        })
+    }
+    function getPeople(id) {
+        get('http://localhost:9080/people/'+id, function (res) {
+            console.log("res",res)
+            people = res;
+        })
     }
 
     function reset_inputs(person) {
