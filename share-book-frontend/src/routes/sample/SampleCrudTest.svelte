@@ -27,15 +27,23 @@
         })
     }
     function getPeople(id) {
-        get('http://localhost:9080/people/'+id, function (res) {
-            console.log("res",res)
-            people = res;
-        })
+        if(id) {
+            get('http://localhost:9080/people/'+id, function (res) {
+                first = res.first;
+                last = res.last;
+            })
+        }
     }
 
     function reset_inputs(person) {
-      first = person ? person.first : '';
-      last = person ? person.last : '';
+      var id = person ? person.id : ''
+      if(id) {
+        getPeople(id)
+      }
+    }
+
+    function change (e) {
+        getPeople(e.target.value)
     }
 
     function create() {
@@ -62,7 +70,7 @@
 <main>
     <input placeholder="filter prefix" bind:value="{prefix}"/>
 
-    <select bind:value="{i}" size="{5}">
+    <select bind:value="{i}" size="{5}" on:change={change}>
         {#each filteredPeople as person, i}
         <option value="{i}">{person.last}, {person.first}</option>
         {/each}

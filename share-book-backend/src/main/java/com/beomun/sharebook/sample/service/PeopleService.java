@@ -25,8 +25,6 @@ public class PeopleService {
 
     public List<People> getPeopleList () {
 
-
-
         List<People> list = peopleRepository.findAll();
         log.info("List > "+list.toString());
         return list;
@@ -35,5 +33,7 @@ public class PeopleService {
     public Optional<People> getPeople (Long id) {
         return peopleRepository.findById(id);
     }
+    
+
 
 }

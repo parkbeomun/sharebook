@@ -25,7 +25,6 @@ public class SampleController {
         Map<String,Object> sampleMap = new HashMap<>();
         sampleMap.put("name","beomun");
         sampleMap.put("age","34");
-
         return sampleMap;
     }
 
